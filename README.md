@@ -20,3 +20,4 @@ Unhandled cases:
 
 ## Challenges
 - The biggest challenge I faced was getting the positioning right for each element. At first I tried nesting div elements inside each other, but without nesting and using absolute positioning, the items fell into place. Additionally, I used the p element for text nodes at first not realizing the browser was adding default styles. Once switching to span element, it worked better.
+- Figma outputs a lot of properties when fetching from the API. Figuring out the exact properties needed for the nodes took some time.
