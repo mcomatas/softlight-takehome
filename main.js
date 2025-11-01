@@ -81,7 +81,7 @@ function generateHTMLandCSS(node) {
 // lines handle special cases so the borders don't stack
 function frameNodeToHTMLAndCSS(node) {
     const uniqueClass = toUniqueClass(node);
-    html += `<div class="${uniqueClass}"></div>`;
+    html += `<div class="${uniqueClass}"></div>\n`;
     css += `
         .${uniqueClass} {
             ${generateLayoutCSS(node)}
@@ -97,7 +97,7 @@ function frameNodeToHTMLAndCSS(node) {
 // Generate HTML and CSS for RECTANGLE nodes
 function rectangleNodeToHTMLAndCSS(node) {
     const uniqueClass = toUniqueClass(node);
-    html += `<div class="${uniqueClass}"></div>`;
+    html += `<div class="${uniqueClass}"></div>\n`;
     css += `
         .${uniqueClass} {
             background: rgb(${Math.round(node.fills[0].color.r * 255)}, ${Math.round(node.fills[0].color.g * 255)}, ${Math.round(node.fills[0].color.b * 255)});
@@ -115,7 +115,7 @@ function rectangleNodeToHTMLAndCSS(node) {
 // Generate HTML and CSS for TEXT nodes
 function textNodeToHTMLAndCSS(node) {
     const uniqueClass = toUniqueClass(node);
-    html += `<span class="${uniqueClass}">${node.characters}</span>`;
+    html += `<span class="${uniqueClass}">${node.characters}</span>\n`;
     css += `
         .${uniqueClass} {
             ${figmaStyleToCSS(node.style)}
