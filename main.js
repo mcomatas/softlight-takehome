@@ -100,14 +100,9 @@ function rectangleNodeToHTMLAndCSS(node) {
     html += `<div class="${uniqueClass}"></div>\n`;
     css += `
         .${uniqueClass} {
-            background: rgb(${Math.round(node.fills[0].color.r * 255)}, ${Math.round(node.fills[0].color.g * 255)}, ${Math.round(node.fills[0].color.b * 255)});
-            border-radius: ${node.cornerRadius}px;
-            width: ${node.absoluteBoundingBox.width}px;
-            height: ${node.absoluteBoundingBox.height}px;
-            left: ${node.absoluteBoundingBox.x}px;
-            top: ${node.absoluteBoundingBox.y}px;
-            display: flex;
-            position: absolute;
+            ${generateFrameBackgroundCSS(node)}
+            ${generateBorderRadius(node)}
+            ${generateLayoutCSS(node)}
         }
     `;
 }
