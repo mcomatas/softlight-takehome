@@ -203,13 +203,10 @@ function generateTextColor(node) {
     if(fills.length === 0) return '';
 
     const fill = fills[0];
+    const opacity = fill.opacity !== undefined ? fill.opacity : 1;
     const { r, g, b, a } = fill.color;
 
-    const red = Math.round(r * 255);
-    const green = Math.round(g * 255);
-    const blue = Math.round(b * 255);
-    
-    return `color: rgba(${red}, ${green}, ${blue}, ${a});`;
+    return `color: rgba(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)}, ${opacity});`;
 }
 
 // Create a unique CSS class name for a node. Uses node name and short node ID.
@@ -230,6 +227,7 @@ function figmaStyleToCSS(style) {
         font-family: ${style.fontFamily};
         font-size: ${style.fontSize}px;
         font-weight: ${style.fontWeight};
+        ${style.fontWeight === 600 ? "font-variation-settings: 'wght' 520;" : ''}
         line-height: ${style.lineHeightPx}px;
         letter-spacing: ${style.letterSpacing}px;
         text-align: ${style.textAlignHorizontal.toLowerCase()};
