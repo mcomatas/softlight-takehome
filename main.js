@@ -50,7 +50,7 @@ fetch(url, {
     fs.writeFileSync('index.html', htmlContent);
     fs.writeFileSync('main.css', css);
 
-    console.log('✅ HTML and CSS files have been generated.');
+    console.log('HTML and CSS files have been generated.');
 })
 .catch(error => console.log(error));
 
